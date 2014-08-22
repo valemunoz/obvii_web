@@ -1,8 +1,8 @@
 <?php
 include("connec.php");
-define("PATH_SITE","http://localhost/demos_moxup/obvii_v2");
-define("PATH_SITE_WEB","http://localhost/demos_moxup/obvii_v2/site");
-define("PATH_SITE_ADMIN","http://localhost/demos_moxup/obvii_v2/admin");
+define("PATH_SITE","http://localhost/github/obvii_web");
+define("PATH_SITE_WEB","http://localhost/github/obvii_web/site");
+define("PATH_SITE_ADMIN","http://localhost/github/obvii_web/admin");
 //define("PATH_SITE","http://locate.chilemap.cl/obvii_v2");
 //define("PATH_SITE_WEB","http://locate.chilemap.cl/obvii_v2/site");
 //define("PATH_SITE_ADMIN","http://locate.chilemap.cl/obvii_v2/admin");
