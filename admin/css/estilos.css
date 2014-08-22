@@ -1,0 +1,811 @@
+/*fuentes especiales */
+
+@font-face
+{
+    font-family: 'Tui';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fuentes/airstrip_0-webfont.ttf');
+}
+
+@font-face
+{
+    font-family: 'TuiIE';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fuentes/airstrip_0-webfont.eot');
+}
+
+
+@font-face
+{
+    font-family: 'menu';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fuentes/aller-webfont.ttf');
+}
+
+@font-face
+{
+    font-family: 'menuIE';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fuentes/aller-webfont.eot');
+}
+
+
+
+
+body
+{
+    /* navegadores sin soporte */
+    background-image: url('../img/plantilla/fondo_web.jpg');
+    background-position: center top;
+    background-repeat: repeat-y;
+    background-color: #cccccc;
+    font-family: 'sans-serif' , sans-serif;
+    padding: 0px;
+    margin: 0px;
+    color: #666666;
+    font-size: 12px;
+}
+
+
+h1
+{
+    font-size: 1.2em;
+}
+
+h2
+{
+    font-size: 1em;
+    text-align: justify;
+}
+
+
+.separador
+{
+    width: 100%;
+    height: 1px;
+    display: block;
+    clear: both;
+}
+
+
+.boton
+{
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: black;
+    border-color: black;
+    border-radius: 4px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-family: 'menu' 'menuIE';
+}
+
+.boton:hover
+{
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: #b61918;
+    border-color: #b61918;
+    border-radius: 4px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-family: 'menu' 'menuIE';
+}
+
+.tiqueTui
+{
+    font-family: "Tui" "TuiIE";
+    color: #CC0000;
+}
+
+a
+{
+    text-decoration: none;
+    color: #CC0000;
+}
+
+a:hover
+{
+    text-decoration: underline;
+    color: black;
+}
+
+
+
+/* plantilla */
+
+.superior
+{
+    height: auto;
+    min-height: 100px;
+    background-image: url('../img/plantilla/fondo_cabecera.jpg');
+    background-position: center top;
+    background-repeat: repeat;
+    background-color: #b61918;
+    width: 100%;
+}
+
+
+.logotipo
+{
+    float: left;
+    display: inline-block;
+    height: auto;
+    margin: 20px 10px 20px auto;
+}
+
+.menu
+{
+}
+
+.acceso_zona_privada
+{
+    display: none;
+}
+
+.privada
+{
+    float: right;
+    display: inline-block;
+    width: 410px;
+    height: 20px;
+    font-family: 'menu' 'menuIE';
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #FFFFFF;
+    padding: 10px;
+    background: #b61918; /* Old browsers */
+    background: -moz-linear-gradient(left, #b61918 0%, #cb1f1c 50%, #8f0222 100%, #b61918 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#b61918), color-stop(50%,#cb1f1c), color-stop(100%,#8f0222), color-stop(100%,#b61918)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #b61918 0%,#cb1f1c 50%,#8f0222 100%,#b61918 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #b61918 0%,#cb1f1c 50%,#8f0222 100%,#b61918 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #b61918 0%,#cb1f1c 50%,#8f0222 100%,#b61918 100%); /* IE10+ */
+    background: linear-gradient(to right, #b61918 0%,#cb1f1c 50%,#8f0222 100%,#b61918 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b61918', endColorstr='#b61918',GradientType=1 ); /* IE6-9 */
+}
+
+.privada_titulo
+{
+    font-size: 1.3em;
+    line-height: 1.5em;
+    padding-bottom: 10px;
+}
+
+.privada a
+{
+    color: #FFF;
+}
+
+.privada_texto
+{
+    float: left;
+    text-align: left;
+    min-width: 90px;
+    line-height: 1em;
+    padding-bottom: 10px;
+}
+.privada_cajetin
+{
+    float: left;
+}
+
+.privada_cajetin_imput
+{
+    border-radius: 4px;
+    font-family: "Courier New" , Courier, monospace;
+}
+
+.privada_boton
+{
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: black;
+    border-color: black;
+    border-radius: 4px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-family: 'menu' 'menuIE';
+}
+
+.privada_boton:hover
+{
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: #FFF;
+    border-color: #FFF;
+    border-radius: 4px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-family: 'menu' 'menuIE';
+}
+
+.separador_privada
+{
+    display: block;
+    clear: both;
+    height: 1px;
+}
+
+.cuerpo
+{
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+    margin: 0px auto 0px auto;
+    min-height: 550px;
+}
+
+.texto_derecha
+{
+    text-align: right;
+}
+.pie
+{
+    margin-top: 20px;
+    height: auto;
+    background-image: url('../img/plantilla/fondo_cabecera.jpg');
+    background-position: center top;
+    background-repeat: repeat;
+    background-color: #b61918;
+    width: 100%;
+}
+
+.santander
+{
+    height: auto;
+    float: right;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.firma
+{
+    display: inline-block;
+    float: left;
+    font-family: 'menu' 'menuIE';
+    font-style: italic;
+    font-size: 1em;
+    color: #FFFFFF;
+    padding: 20px 0px 20px 0px;
+}
+
+.firma2
+{
+    font-size: 0.8em;
+}
+
+.firma2 a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.firma2 a:hover
+{
+    text-decoration: underline;
+}
+
+.espacio_contenido
+{
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+    margin: 0px auto 0px auto;
+}
+
+.arriba
+{
+    display: none;
+}
+
+.boton_negro
+{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    background-color: #1A1A1A;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    padding: 7px 13px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+.boton_negro:hover
+{
+    background-color: #333333;
+    color: #FFFFFF !important;
+    font-size: 16px;
+}
+/* index */
+
+.carrusel
+{
+    margin: 20px auto 20px auto;
+}
+
+.fin-carrusel
+{
+    border-bottom: 1px #333 dashed;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.texto_index
+{
+    text-align: center;
+    line-height: 1.5em;
+}
+
+.texto_index_titulo
+{
+    font-size: 1.7em;
+    line-height: 2.5em;
+    color: #CC0000;
+    text-shadow: 0px 0px 5px #696;
+}
+
+.bloque_index
+{
+    display: inline-block;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    height: auto;
+    width: auto;
+    max-width: 320px;
+}
+
+.cabecera_bloque_index
+{
+    background-color: black;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.selector_bloque_index
+{
+    color: #666666;
+    padding: 3px 5px 3px 5px;
+    margin: 10px auto 10px auto;
+    border-radius: 4px;
+    border: 1px silver solid;
+    width: 300px;
+}
+
+.titulo_ventaja
+{
+    background-image: url('../img/paginas/marca_titulo.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    font-size: 1.2em;
+    color: #c1272d;
+    line-height: 2em;
+    margin-top: 20px;
+}
+
+.ventaja
+{
+    background-image: url('../img/paginas/marca_contenido.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}
+
+.subventaja
+{
+    font-size: 1.2em;
+    color: #c1272d;
+    line-height: 2em;
+    margin-top: 20px;
+}
+
+.flechas_index
+{
+    padding-top: 40px;
+}
+
+
+/* ventajas */
+
+
+.ventajas_texto
+{
+    text-align: justify;
+    padding: 10px;
+}
+
+.lista_ventajas ul li
+{
+    list-style-image: url('../img/paginas/marca_titulo.png');
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    border-bottom: 1px silver dashed;
+    line-height: 1.5em;
+}
+
+.lista_ventajas_titulo
+{
+    font-family: "Tui" "TuiIE";
+    line-height: 1.5em;
+    color: #CC0000;
+    font-size: 1.5em;
+}
+
+.ventajas_banner
+{
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.ventajas_banner_texto
+{
+    display: inline-block;
+    float: left;
+    font-family: "Tui" "TuiIE";
+    font-size: 3em;
+    color: #999999;
+    text-align: center;
+    width: auto;
+    max-width: 600px;
+}
+
+.ventajas_banner_imagen
+{
+    display: inline-block;
+    float: right;
+    width: auto;
+    max-width: 300px;
+}
+
+/* FAQ */
+
+.faq_bloque
+{
+    padding: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px silver dashed;
+}
+
+.faq_pregunta
+{
+    color: #CC0000;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 2em;
+}
+
+.faq_respuesta
+{
+    font-size: 0.8em;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+.faq_imagen
+{
+    float: right;
+    margin: 0px 0px 10px 10px;
+    padding: 5px;
+    border: 1px silver dashed;
+    border-radius: 4px;
+}
+
+.faq_adjunto
+{
+    background-image: url('../img/paginas/faq_adjunto.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    line-height: 32px;
+    margin: 10px 0px 10px 0px;
+}
+
+/* Como funciona */
+
+.como_bloque
+{
+    padding: 10px;
+    font-size: 0.9em;
+    text-align: justify;
+    line-height: 1.5em;
+    border-bottom: 1px silver dashed;
+}
+
+.como_img_derecha
+{
+    float: right;
+    padding: 5px;
+    border: 1px silver dashed;
+    margin: 0px 0px 10px 10px;
+    border-radius: 4px;
+}
+
+.como_img_derecha img
+{
+    border-radius: 4px;
+}
+
+.como_img_izquierda
+{
+    float: left;
+    border: 1px silver dashed;
+    margin: 0px 10px 10px 0px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.como_img_izquierda img
+{
+    border-radius: 4px;
+}
+
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+input[type="submit"], input[type="button"]
+{
+    margin-top: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    background-color: #1A1A1A;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 10px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+input[type="submit"]:hover, input[type="button"]:hover
+{
+    background-color: #333333;
+    color: #FFFFFF !important;
+    font-size: 12px;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.floatL
+{
+    float: left;
+}
+
+.floatR
+{
+    float: right;
+}
+
+/* ERRORES
+----------------------------------------------------------*/
+
+.valError
+{
+    color: #FF0000;
+}
+
+.txtError
+{
+    border: 2px solid #FF0000;
+}
+
+/* TABLAS GRIDS
+-----------------------------------------------------------*/
+
+.gridTabla
+{
+    border-collapse: collapse;
+    color: #333333;
+    width: 100%;
+}
+
+.gridCabecera, .gridCabecera a
+{
+    background-color: #838485;
+    color: White;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    font-size:75%;
+}
+
+.gridPie, .gridPie a
+{
+    background-color: #838485;
+    color: White;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.gridPaginador, .gridPaginador td, .gridPaginador td a
+{
+    background-color: #9C9D9E;
+    color: White;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.gridPaginador td
+{
+    padding-right: 5px;
+}
+
+.gridPaginador td span
+{
+    color: #CCCCCC;
+}
+
+.gridFila, .gridFila a
+{
+    background-color: #DDDDDD;
+    color: #333333;
+    text-decoration: none;
+    font-size:75%;
+}
+
+.gridFilaB, .gridFilaB a
+{
+    background-color: #FFFFFF;
+    color: #333333;
+    text-decoration: none;
+    font-size:75%;
+}
+
+.gridFilaError, .gridFilaError a
+{
+    background-color: #FF0000;
+    color: #333333;
+    text-decoration: none;
+}
+
+.gridFilaSeleccionada, .gridFilaSeleccionada a
+{
+    background-color: #FFFF88;
+    color: #333333;
+    text-decoration: none;
+}
+
+.gridRoja
+{
+    color: #FF0000;
+}
+
+.gridBotonera
+{
+    margin: 10px 5px 20px 20px;
+    height: 30px;
+    text-align: right;
+    clear: both;
+}
+
+.gridBotonera a
+{
+    margin-top: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    background-color: #1A1A1A;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 10px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.gridBotonera a:hover
+{
+    background-color: #333333;
+    color: #FFFFFF !important;
+    font-size: 12px;
+}
+
+/* TABLAS DETALLES
+-----------------------------------------------------------*/
+
+table.detalles
+{
+    width: 750px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+table.detalles td.detallesI
+{
+    padding: 5px;
+    background-color: #b6b6b6;
+    color: #333333;
+    font-weight: bold;
+    text-align: right;
+    width: 210px;
+    margin-bottom: 2px;
+}
+
+table.detalles td.detallesD
+{
+    padding: 5px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: left;
+    margin-bottom: 2px;
+}
+#table_filtro
+{
+	font-size:13px;
+}
+.input_filtro
+{
+	border-radius: 5px 5px 5px 5px;
+	border: 1px solid #DDDDDD !important;
+}
+#resultado
+{
+	margin-top: 20px;
+	border-radius: 5px 5px 5px 5px;
+	height:50%;
+	border: 1px solid #DDDDDD;
+	width:100%;
+ overflow-x:auto; 
+  font-family: 'sans-serif',sans-serif;
+}
+#table_resul
+{
+	font-size:13px;
+}
+#grafico1
+{
+	float:right;
+	margin-right:36%;
+}
