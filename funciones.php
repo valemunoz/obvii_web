@@ -704,7 +704,7 @@ function getUsuariosInterno($qr)
 	
 	$dbPg=pgSql_db();
 	
-  $sql2 = "SELECT id_usuario_interno, nombre, estado, id_lugar, fecha_registro FROM obvii_usuarios_internos where 1=1";		
+  $sql2 = "SELECT id_usuario_interno, nombre, estado, id_lugar, fecha_registro,tipo,descripcion FROM obvii_usuarios_internos where 1=1";		
   if($qr!="")
   {
   	$sql2 .=$qr;
@@ -720,6 +720,8 @@ function getUsuariosInterno($qr)
 				$data[]=$row2[2];
 				$data[]=$row2[3];
 				$data[]=$row2[4];
+				$data[]=$row2[5];
+				$data[]=$row2[6];
 
 				$datos[]=$data;
 		}
@@ -731,8 +733,8 @@ function addUsuarioInt($data)
 	$dbPg=pgSql_db();
 	
   $sql2 = "INSERT INTO obvii_usuarios_internos(
-            nombre, estado, id_lugar, fecha_registro)
-    VALUES ('".$data[0]."', '".$data[1]."', '".$data[2]."', '".date("Y-m-d H:i:s")."')";		
+            nombre, estado, id_lugar, fecha_registro,tipo,descripcion)
+    VALUES ('".$data[0]."', '".$data[1]."', '".$data[2]."', '".date("Y-m-d H:i:s")."','".$data[3]."','".$data[4]."')";		
  
   $rs2 = pg_query($dbPg, $sql2);
 

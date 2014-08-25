@@ -1,6 +1,9 @@
 var OBVII_LON=0;
 var OBVII_LAT=0;
 var OBVII_ACCU=0;
+var PAIS_LON=-70.656235;
+var PAIS_LAT=-33.458943;
+var OBVII_PAIS="chile";
 function cambiar(nom_mod)
 {
 	//$( ":mobile-pagecontainer" ).pagecontainer( "load", pageUrl, { showLoadMsg: false } );
@@ -125,7 +128,7 @@ function loadHome()
 function loadAsis()
 {
 	$.mobile.loading( 'show', {
-			text: 'Cargando Lugares...',
+			text: '...',
 			textVisible: true,
 			theme: 'a',
 			html: ""
@@ -703,4 +706,44 @@ function sendLitsaMail(id_lug,id_base)
 					
 				}
 		);
+}
+function verMapa()
+{
+	//cambiar("mod_mapa");
+		$.mobile.loading( 'show', {
+				text: 'Cargando Mapa',
+				textVisible: true,
+				theme: 'a',
+				html: ""
+			});
+			$("#contenido_sesion").load("query.php", 
+			{tipo:18} 
+				,function(){	
+					
+					init(PAIS_LON,PAIS_LAT,10);
+					
+				}
+			);
+		$.mobile.loading( 'show', {
+				text: 'Obteniendo ubicacion actual',
+				textVisible: true,
+				theme: 'a',
+				html: ""
+			});
+		navigator.geolocation.getCurrentPosition (function (pos)
+		{
+			var lat = pos.coords.latitude;
+  		var lng = pos.coords.longitude;
+  		var accu=pos.coords.accuracy.toFixed(2);
+  		
+  		OBVII_LON=lng;
+  		OBVII_LAT=lat;
+  		OBVII_ACCU=accu;
+			$("#info_pres").html("La precision de su GPS es de "+OBVII_ACCU+". Si desea mejorarla conectese a una red Wi-Fi.");
+			moverCentro(OBVII_LAT,OBVII_LON,15);
+			//point5
+			addMarcadores(OBVII_LON,OBVII_LAT,"Ubicacion Actual","images/point.png",40,40);
+			$.mobile.loading( 'hide');
+			},noLocation);
+			
 }

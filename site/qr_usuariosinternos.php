@@ -92,6 +92,15 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 			$check2="selected";
 		}
 		$lugares=getLugares(" and id_cliente=".$_SESSION['id_cliente_web']." order by nombre");
+		$check="checked";
+		$check2="";
+		if($usuario[0][5]==2)
+		{
+			$check2="checked";
+			$check="";
+			
+			
+		}
 		?>
 		<table border=1 id="table_resul" class="bordered">
 		 <tr><td>Nombre</td><td><input id="nom_us" name="nom_us" type="text" value="<?=$usuario[0][1]?>"></td></tr>		
@@ -104,6 +113,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 							
 						</select>		
 				</td></tr>
+				<tr><td>Tipo Lista</td><td><input type="radio" id="lug" name="group2" value="1"  <?=$check?>> Personas <input type="radio" id="lug2" name="group2" value="2"  <?=$check2?>> Otro</td></tr>		
 				<tr><td>Lugar</td>
 				<td>
 					<select id=tipo_us name=tipo_us>
@@ -122,6 +132,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 							?>
 						</select>		
 				</td></tr>
+				<tr id="opc_list"><td>Descripci&oacute;n</td><td><textarea name="descript" id="descript" rows="4" cols="50"><?=$usuario[0][6]?></textarea></td></tr>
 			
 			<tr><td></td><td><input type="button" onclick="updateUsuarioInt('<?=encrypt($id,ENCRIPTACION)?>');" value="Guardar"></td></tr>
 		</table>
@@ -129,7 +140,8 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 			<?php
 	}elseif($_REQUEST['tipo']==3 and $estado_sesion==0)//update usuario
 	{
-		updateUsuarioInt("estado='".$_REQUEST['estado']."', id_lugar=".$_REQUEST['lugar'].", nombre='".$_REQUEST['nom']."'",decrypt($_REQUEST['id'],ENCRIPTACION));
+		
+		updateUsuarioInt("descripcion='".$_REQUEST["desc"]."',tipo='".$_REQUEST["tipo_lista"]."',estado='".$_REQUEST['estado']."', id_lugar=".$_REQUEST['lugar'].", nombre='".$_REQUEST['nom']."'",decrypt($_REQUEST['id'],ENCRIPTACION));
 	}elseif($_REQUEST['tipo']==4 and $estado_sesion==0)//nuevo usuario
 	{
 		$lugares=getLugares(" and id_cliente=".$_SESSION['id_cliente_web']." order by nombre");
@@ -145,6 +157,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 							
 						</select>		
 				</td></tr>
+				<tr><td>Tipo Lista</td><td><input type="radio" id="lug" name="group2" value="1" checked> Personas <input type="radio" id="lug2" name="group2" value="2"> Otro</td></tr>		
 				<tr><td>Lugar</td>
 				<td>
 						<select id=tipo_us name=tipo_us>
@@ -158,6 +171,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 							?>
 						</select>		
 				</td></tr>
+				<tr id="opc_list"><td>Descripci&oacute;n</td><td><textarea name="descript" id="descript" rows="4" cols="50"></textarea></td></tr>
 				<tr><td></td><td><input type="button" onclick="saveUsuarioInt();" value="Registrar"></td></tr>
 			</table>
 			<div id="msg_error_add" class="msg_error"></div>
@@ -168,6 +182,8 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE_WEB))==PATH_SITE_WEB)
 		$data[]=$_REQUEST['nombre'];
 		$data[]=$_REQUEST['estado'];		
 		$data[]=$_REQUEST['lugar'];		
+		$data[]=$_REQUEST["tipo_lista"];
+		$data[]=$_REQUEST["desc"];
 		
 		addUsuarioInt($data);
 		

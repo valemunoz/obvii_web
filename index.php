@@ -30,15 +30,32 @@ $_SESSION['tipo_usuario']=$deviceType;
         <link rel="stylesheet" href="css/style.mobile.css" type="text/css">
         <link rel="stylesheet" href="css/style.mobile-jq.css" type="text/css">
    			<link rel="stylesheet" href="css/style.css" />
+   			<script type="text/javascript" src="http://www.chilemap.cl/OpenLayers/OpenLayers.js"></script>        
+   			
+        <script src="js/funciones_api_mobile_basica.js"></script>
     </head>
     <body onload=inicio();>
 
     <div data-role="page" id="mappage" data-theme="a">
+		    	<div data-role="panel" id="mypanel" data-theme="a" style="z-index:99999;" data-position="right" data-display="overlay">
+    	  		<a href="#mypanel" data-iconpos="top" data-rel="close" data-icon="delete" data-role="button" data-iconpos="notext"></a>
+    			
+			  	  <div data-role="collapsible" data-collapsed="false" >
+    				  <h3>Men&uacute;</h3>
+							<ul data-role="listview" data-inset="false">
+								<li><a href="javascript:verMapa();" data-rel="dialog" data-transition="pop" >Mapa</a></li>	
+    	  	  		<li><a href="javascript:cerrarSesion();" data-rel="dialog" data-transition="pop" >Cerrar sesi&oacute;n</a></li>		
+			  	    </ul>		
+			  	    	    	
+			  	  </div>
 
+					
+				</div><!-- /panel -->
    		<div data-role="header" >
    			 
       		<h1><img src="images/obvii-logo-white.png">     		 </h1>  		 
-      		<img id=close_boton src="images/salir.png" class="ui-btn-right" onclick="cerrarSesion();">
+      		<!--img id=close_boton src="images/salir.png" class="ui-btn-right" onclick="cerrarSesion();"-->
+      		<a href="#mypanel" data-icon="bars" data-role="button" data-iconpos="notext" class="ui-btn-right">+</a>
    		</div>    		
    	  <div data-role="content" id="contenido" >
    	  	
@@ -63,7 +80,7 @@ $_SESSION['tipo_usuario']=$deviceType;
 			if($_SESSION["tipo_cli"]==1)
 			{
 			?>
-			<li ><a  href="javascript:loadAsis();"><img src="images/student-32.png"></a></li>
+			<li ><a  href="javascript:loadAsis();"><img src="images/ticket-32.png"></a></li>
 			<?php
 			}
 			?>
@@ -99,7 +116,13 @@ $_SESSION['tipo_usuario']=$deviceType;
    	?>	
     	  
  		</div> 		
- 		
+ 		<div data-role="page" id="mod_mapa" data-theme="a">
+
+   	<?php
+   	include("mod_mapa.php")
+   	?>	
+    	  
+ 		</div> 		
  		<script>
  			function inicio()
  			{

@@ -416,11 +416,14 @@ function nuevoUsuarioInterno()
 function saveUsuarioInt()
 {
 	var estado=$.trim(document.getElementById("est_us").value);
-	var nombre=$.trim(document.getElementById("nom_us").value);
-		
-		
+	var nombre=$.trim(document.getElementById("nom_us").value);		
 		var lugar=$.trim(document.getElementById("tipo_us").value);
-		
+		var descripcion=$.trim(document.getElementById("descript").value);
+		var tipo_lista=1;
+		if(document.getElementById("lug2").checked)
+		{
+			tipo_lista=2;
+		}
 	var msg="";
 	var valida=true;
 
@@ -437,7 +440,7 @@ function saveUsuarioInt()
 	}else
 	{
 		$("#output").load("qr_usuariosinternos.php", 
-							{tipo:5, estado:estado,lugar:lugar,nombre:nombre} 
+							{tipo:5, estado:estado,lugar:lugar,nombre:nombre,tipo_lista:tipo_lista,desc:descripcion} 
 								,function(){
 									CloseModalMapa();
 										filtrar_usInterno();
@@ -462,6 +465,13 @@ function updateUsuarioInt(id_usuario)
 		
 		
 		var lugar=$.trim(document.getElementById("tipo_us").value);
+		
+		var descripcion=$.trim(document.getElementById("descript").value);
+		var tipo_lista=1;
+		if(document.getElementById("lug2").checked)
+		{
+			tipo_lista=2;
+		}
 	var msg="";
 	var valida=true;
 
@@ -478,7 +488,7 @@ function updateUsuarioInt(id_usuario)
 	}else
 	{
 		$("#output").load("qr_usuariosinternos.php", 
-							{tipo:3, estado:estado,lugar:lugar,nom:nombre,id:id_usuario} 
+							{tipo:3, estado:estado,lugar:lugar,nom:nombre,id:id_usuario,tipo_lista:tipo_lista,desc:descripcion} 
 								,function(){
 									CloseModalReg();
 										filtrar_usInterno();
@@ -535,4 +545,13 @@ function mailLista(id_lista)
 										OpenModalReg();
 								}
 		);
+}
+
+function activaDescrip()
+{
+	$("#opc_list").show();
+}
+function desactivaDescrip()
+{
+	$("#opc_list").hide();
 }

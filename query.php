@@ -96,6 +96,9 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
 					<?php
 					foreach($lugares as $lug)
 					{
+						$favorito=getFavoritos(" and id_usuario ilike '".$_SESSION["id_usuario"]."' and estado=0 and id_lugar=".$lug[0]."");
+						if(count($favorito)==0)
+						{
 						$txt_hora="";
 						$marcacion=getMarcaciones(" and id_usuario ilike '".$_SESSION["id_usuario"]."' and id_lugar=".$lug[0]." and fecha_registro >= '".date("Y-m-d")."' order by fecha_registro desc limit 1");
 						$img_asis="images/icon-servicios.png";
@@ -157,6 +160,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
 
 						
 				  <?php
+					}
 					}
 				?>
 			  </ul>	
@@ -646,7 +650,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
 		$usuarios=getUsuariosInterno(" and estado=0 and id_lugar=".$marcacion[0][5]." order by nombre");
 		?>
 		
-		<h4>Asistencia <?=strtoupper($marcacion[0][11])?></h4>
+		<h4>Revisi&oacute;n <?=strtoupper($marcacion[0][11])?></h4>
 		  
 		<?php
 	   if(count($usuarios)==0 and count($marcacion)>0)
@@ -668,19 +672,31 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
   			
   			foreach($usuarios as $us)
   			{
+  				/*
   				$img="images/student3-64.png";
+  				$img2="images/ticket3.png";
+  				*/
+  				$img="images/student2-64.png";
+  				$img2="images/ticket2.png";
   				$marca=getMarcaInt(" and estado=0 and id_marca_base=".$marcacion[0][0]." and id_usuario=".$us[0]."");
   				if(count($marca)>0)
   				{
   					if($marca[0][4]=='t')
   					{
   						$img="images/student-64.png";
+  						$img2="images/ticket.png";
   					}else
   					{
   						$img="images/student2-64.png";
+  						$img2="images/ticket2.png";
   					}
   				}
   				//print_R($marca);
+  				
+  				if($us[5]==2)
+  				{
+  					$img=$img2;
+  				}
   			?>
   			 <li>
     	    <img src="<?=$img?>">
@@ -691,15 +707,18 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
   					?>
   					<div data-role="controlgroup" class="ui-li-aside" data-type="horizontal" data-mini="true">
     					
-    					<a href="javascript:cancelaMarcaInt(<?=$marca[0][0]?>);" data-role="button">Cancelar</a>    
+    					
+    					 <a href="javascript:cancelaMarcaInt(<?=$marca[0][0]?>);"  data-role="button" data-icon="delete" data-iconpos="notext">Icon only</a>
 						</div>
   					<?php
   				}else
   				{
   					?>
   					<div data-role="controlgroup" class="ui-li-aside" data-type="horizontal" data-mini="true">
-    					<a href="javascript:marcaInt('true',<?=$us[0]?>,<?=$marcacion[0][5]?>,<?=$marcacion[0][0]?>);" data-role="button">Si</a>
-    					<a href="javascript:marcaInt('false',<?=$us[0]?>,<?=$marcacion[0][5]?>,<?=$marcacion[0][0]?>);" data-role="button">No</a>    
+    					
+    					<a href="javascript:marcaInt('true',<?=$us[0]?>,<?=$marcacion[0][5]?>,<?=$marcacion[0][0]?>);" data-role="button"  data-icon="check" data-iconpos="notext">SI</a>
+    					<!--a href="javascript:marcaInt('false',<?=$us[0]?>,<?=$marcacion[0][5]?>,<?=$marcacion[0][0]?>);" data-role="button">No</a-->    
+    					
 						</div>
   					<?php
   				}
@@ -756,6 +775,25 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
 		//echo $html;
 		sendMail($lugar[0][14],$html,"Listado asistencia ".ucwords($lugar[0][1])."");
 		//print_r($marcas);
+	}elseif($estado_sesion==0 and $_REQUEST['tipo']==18)//mpa
+	{
+		$cliente=getCliente(" and id_cliente=".$_SESSION['id_cliente']."");
+		if($cliente[0][4]=="peru")
+		{
+			?>
+			<script>
+				PAIS_LON=-77.041752;
+				PAIS_LAT=-12.052364;
+				OBVII_PAIS="peru";
+				</Script>
+			<?php
+		}
+		?>
+		<div id=info_pres class=msg_error></div>
+		<br>
+		<div id="map">
+		</div>
+		<?php
 	}
 }
 ?>
