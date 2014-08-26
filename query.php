@@ -697,10 +697,15 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
   				{
   					$img=$img2;
   				}
+  				$msg=ucwords($us[6]);
+  				if(trim($us[6])=="")
+  				{
+  					$msg="No hay descripci&oacute;n disponible";
+  				}
   			?>
-  			 <li>
+  			 <li onclick="mensaje('<?=$msg?>','Descripci&oacute;n','myPopup');">
     	    <img src="<?=$img?>">
-    	    <h3><?=ucwords($us[1])?></h3> 
+    	    <h3><?=ucwords($us[1])?></h3>
     	    <?php
     	    if(count($marca)>0)
   				{
