@@ -657,6 +657,7 @@ function delFav(id_lugar)
 }
 function marcaInt(est,id_usuario,id_lugar,marca)
 {
+	$("#myPopup").popup("close");
 	$.mobile.loading( 'show', {
 				text: 'Marcando',
 				textVisible: true,
@@ -674,6 +675,7 @@ function marcaInt(est,id_usuario,id_lugar,marca)
 }
 function cancelaMarcaInt(id_marca)
 {
+	$("#myPopup").popup("close");
 	$.mobile.loading( 'show', {
 				text: 'Cancelando',
 				textVisible: true,

@@ -81,6 +81,13 @@
 	font-weight:bold;
 	
 }
+#myPopup
+{
+	max-height:150px !important;
+	min-width:200px !important;
+	overflow-y: auto;	
+	overflow-x:hidden; 
+}
 .titulo
 {
 	font-size:14px;

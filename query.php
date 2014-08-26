@@ -697,7 +697,7 @@ if(substr(strtolower($data_server[0]),0,strlen(PATH_SITE))==PATH_SITE)
   				{
   					$img=$img2;
   				}
-  				$msg=ucwords($us[6]);
+  				$msg=trim(ucwords(str_replace("\n","<br>",$us[6])));
   				if(trim($us[6])=="")
   				{
   					$msg="No hay descripci&oacute;n disponible";
